@@ -12,6 +12,7 @@ if [ "${BYPASS_DOWNLOADER}" == "0" ]; then
 	rm -f HytaleServer.zip
 elif [[ -f "HytaleMount/HytaleServer.zip" ]]; then
 	unzip -o HytaleMount/HytaleServer.zip -d .
+	echo "Unzipped HytaleServer"
 elif [[ -f "HytaleMount/Assets.zip" ]]; then
 	ln -s -f HytaleMount/Assets.zip Assets.zip
 elif [[ -f "Server/Assets.zip" ]]; then
