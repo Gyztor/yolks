@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:25-jdk
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:25-jdk-jammy
 
 LABEL       author="William V." maintainer="william.venner@infraly.co"
 
