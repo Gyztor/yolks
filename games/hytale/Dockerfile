@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM 		--platform=$TARGETOS/$TARGETARCH ghcr.io/pterodactyl/yolks:java_25
+FROM 		--platform=$TARGETOS/$TARGETARCH ghcr.io/gyztor/pterodactyl-yolks:java_25
 
 LABEL       author="William V." maintainer="william.venner@infraly.co"
 
