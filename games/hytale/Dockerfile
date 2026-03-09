@@ -27,9 +27,9 @@ LABEL       author="William V." maintainer="william.venner@infraly.co"
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apt update -y
-RUN         apt install -y curl ca-certificates fontconfig tzdata tini unzip jq gettext-base dbus tar zip sqlite3 git openssl lsof file
-RUN         apt clean && rm -rf /var/lib/apt/lists/*
+RUN         apt-get update -y
+RUN         apt-get install -y curl ca-certificates fontconfig tzdata tini unzip jq gettext-base dbus tar zip sqlite3 git openssl lsof file
+RUN         apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 ## configure locale
