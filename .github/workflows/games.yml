@@ -5,7 +5,7 @@ on:
     - cron: "0 0 1 * *"
   push:
     branches:
-      - master
+      - PrimaryYolkRepo
     paths:
       - games/**
 jobs:
@@ -39,4 +39,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/pterodactyl/games:${{ matrix.game }}
+            ghcr.io/gyztor/pterodactyl-games:${{ matrix.game }}-testing
