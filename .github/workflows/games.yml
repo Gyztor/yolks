@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - master
-      - PrimaryYolkRepo
     paths:
       - games/**
 jobs:
