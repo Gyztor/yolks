@@ -27,6 +27,11 @@ LABEL       author="William V." maintainer="william.venner@infraly.co"
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
+USER		root
+
+COPY        --from=ghcr.io/pterodactyl/yolks:java_25 entrypoint.sh /java.sh
+RUN 		chmod +x /java.sh
+
 RUN         apt-get update -y
 RUN         apt-get install -y curl ca-certificates fontconfig tzdata tini unzip jq gettext-base dbus tar zip sqlite3 git openssl lsof file
 RUN         apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -40,14 +45,13 @@ ENV         LANGUAGE en_US:en
 ENV         LC_ALL en_US.UTF-8
 
 ## Setup user and working directory
-RUN         useradd -m -d /home/container -s /bin/bash container
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 STOPSIGNAL SIGINT
 
-COPY        --chown=container:container ./entrypoint.sh /entrypoint.sh
-RUN         chmod +x /entrypoint.sh
+COPY 		./entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT    ["/usr/bin/tini", "-g", "--"]
 CMD         ["/entrypoint.sh"]
