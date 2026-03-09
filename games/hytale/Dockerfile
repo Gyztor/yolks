@@ -49,9 +49,7 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-STOPSIGNAL SIGINT
-
 COPY 		./entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT    ["/usr/bin/tini", "-g", "--"]
-CMD         ["/entrypoint.sh"]
+CMD         [ "/bin/bash", "/entrypoint.sh" ]
